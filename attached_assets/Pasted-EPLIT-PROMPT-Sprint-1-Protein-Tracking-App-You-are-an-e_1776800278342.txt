@@ -1,0 +1,249 @@
+EPLIT PROMPT (Sprint 1 – Protein Tracking App) 
+
+You are an expert full-stack developer. Build a production-ready Protein Tracking Web App (Sprint 1 MVP) using the requirements and design documents I will provide. 
+
+GOAL 
+
+Build a complete, working MVP (Sprint 1) of a protein tracking application that is: 
+
+Accurate 
+
+Functional 
+
+Visually appealing 
+
+Ready to deploy to Azure in later sprints 
+
+ 
+ 
+
+KEY PRINCIPLES 
+
+Write clean, maintainable, well-structured code 
+
+Follow best practices for security, performance, and scalability 
+
+Use Supabase (external project) for authentication, database, and storage (IF NECESSARY) 
+
+Avoid Replit-specific services (ensure portability to Azure) 
+
+Build a responsive, modern, user-friendly UI 
+
+Ensure all core functionality works correctly 
+
+ 
+ 
+
+CONTEXT FILES (I WILL PROVIDE) 
+
+Use these as the single source of truth: 
+
+PRD (Product Requirements Document) 
+
+User Stories 
+
+Wireframes / UI Mockups 
+
+Data Models / Schema 
+
+Any additional supporting documents 
+
+ 
+ 
+
+TECH STACK & INTEGRATIONS 
+
+Frontend: React (Vite) + TypeScript + Tailwind CSS 
+
+Backend/Auth/Database: Supabase (external) 
+
+State Management: React Query (TanStack Query) 
+
+Routing: React Router 
+
+Forms & Validation: React Hook Form + Zod 
+
+Charts: Recharts (for nutrition/progress graphs) 
+
+Date Handling: date-fns or dayjs 
+
+Icons: Lucide React 
+
+ 
+ 
+
+SUPABASE REQUIREMENTS 
+
+Use my external Supabase project (.env variables will be provided) 
+
+Implement authentication (sign up / login / logout) 
+
+Store all app data in Supabase 
+
+Apply Row Level Security (RLS) where appropriate 
+
+ 
+ 
+
+FUNCTIONAL SCOPE (SPRINT 1 MVP) 
+
+1. Authentication 
+
+Sign up 
+
+Login 
+
+Logout 
+
+2. User Profile 
+
+Store basic user info 
+
+Protein goal (grams/day) 
+
+3. Dashboard 
+
+Display daily protein goal 
+
+Show progress (grams consumed vs goal) 
+
+Visual progress indicator (bar or ring) 
+
+4. Food / Meal Logging 
+
+Search foods (use external API like USDA FoodData Central or OpenFoodFacts) 
+
+Add food entries with protein amounts 
+
+Edit and delete logged foods 
+
+5. Daily Log / History 
+
+View foods logged for the day 
+
+Show total protein intake for the day 
+
+6. Reports / Insights (Basic) 
+
+Weekly summary chart 
+
+Protein intake over time 
+
+Follow the user flows and acceptance criteria from the provided documents. 
+
+ 
+ 
+
+DESIGN / UX REQUIREMENTS 
+
+Follow provided wireframes/mockups exactly 
+
+Clean, modern, mobile-first design 
+
+Consistent spacing, typography, and components 
+
+Use Tailwind CSS for styling 
+
+ 
+ 
+
+PROJECT STRUCTURE & CODE QUALITY 
+
+Organize code clearly: 
+
+components/ 
+
+pages/ 
+
+hooks/ 
+
+services/ 
+
+lib/ 
+
+types/ 
+
+utils/ 
+
+Use modular, reusable components 
+
+Use TypeScript everywhere 
+
+Include meaningful comments where needed 
+
+Handle: 
+
+loading states 
+
+errors 
+
+empty states 
+
+Ensure accessibility basics (labels, contrast, keyboard navigation) 
+
+ 
+ 
+
+ENVIRONMENT & PORTABILITY (AZURE-READY) 
+
+Do NOT use Replit-specific features (DB, Auth, Secrets, etc.) 
+
+Use environment variables for all config 
+
+Include a .env.example file 
+
+Ensure the app runs with: 
+
+npm install 
+
+npm run build 
+
+npm run preview 
+
+Prepare for Azure deployment (Static Web Apps or App Service) 
+
+Include clear setup + deployment instructions in README 
+
+ 
+ 
+
+DELIVERABLES (END OF SPRINT 1) 
+
+Fully working MVP application 
+
+GitHub-ready project structure 
+
+README.md with: 
+
+Setup instructions 
+
+Run instructions 
+
+Deployment guidance (Azure) 
+
+.env.example file 
+
+Database schema (SQL or Supabase setup) 
+
+Optional seed data 
+
+Short summary of what was built + how to test it 
+
+ 
+ 
+
+FINAL NOTES 
+
+Prioritize accuracy, usability, and clean UI 
+
+Make reasonable decisions if requirements are unclear (document them) 
+
+Focus on delivering a polished, complete Sprint 1 MVP 
+
+Code should be production-quality and scalable 
+
+ 
+ 
+ 
+
+ 
