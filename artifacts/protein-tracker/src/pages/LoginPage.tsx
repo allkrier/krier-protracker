@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocation } from "wouter";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -30,11 +30,12 @@ export default function LoginPage() {
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
 
-  // Redirect if already logged in
-  if (user && !authLoading) {
-    setLocation("/");
-    return null;
-  }
+  // Redirect if already logged in (use effect to avoid render-time side effects)
+  useEffect(() => {
+    if (user && !authLoading) {
+      setLocation("/");
+    }
+  }, [user, authLoading, setLocation]);
 
   const form = useForm<z.infer<typeof authSchema>>({
     resolver: zodResolver(authSchema),

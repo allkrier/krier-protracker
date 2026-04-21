@@ -20,18 +20,21 @@ import NotFound from "@/pages/not-found";
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      retry: false,
+      retry: 1,
       refetchOnWindowFocus: false,
+      staleTime: 30_000,
     },
   },
 });
 
 function ProtectedRoute({ component: Component }: { component: React.ComponentType }) {
   const { user, isLoading: authLoading } = useAuth();
-  const { profile, isLoading: profileLoading } = useProfile();
+  const { profile, isLoading: profileLoading, error: profileError } = useProfile();
   const [location] = useLocation();
 
-  if (authLoading || profileLoading) {
+  // Only show loading while auth is resolving
+  // Don't block on profileLoading if there's an error — treat error as "no profile"
+  if (authLoading || (profileLoading && !profileError)) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background">
         <Loader2 className="w-8 h-8 animate-spin text-primary" />
