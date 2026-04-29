@@ -9,6 +9,7 @@ import { Loader2 } from "lucide-react";
 
 // Pages
 import LoginPage from "@/pages/LoginPage";
+import LandingPage from "@/pages/LandingPage";
 import OnboardingPage from "@/pages/OnboardingPage";
 import DashboardPage from "@/pages/DashboardPage";
 import LogFoodPage from "@/pages/LogFoodPage";
@@ -55,12 +56,30 @@ function ProtectedRoute({ component: Component }: { component: React.ComponentTy
   return <Component />;
 }
 
+// At the root "/" show landing page for visitors, dashboard for logged-in users
+function SmartHome() {
+  const { user, isLoading: authLoading } = useAuth();
+  const { profile, isLoading: profileLoading, error: profileError } = useProfile();
+
+  if (authLoading || (profileLoading && !profileError)) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-background">
+        <Loader2 className="w-8 h-8 animate-spin text-primary" />
+      </div>
+    );
+  }
+
+  if (!user) return <LandingPage />;
+  if (!profile) return <Redirect to="/onboarding" />;
+  return <DashboardPage />;
+}
+
 function Router() {
   return (
     <Switch>
       <Route path="/login" component={LoginPage} />
+      <Route path="/" component={SmartHome} />
       <Route path="/onboarding" component={() => <ProtectedRoute component={OnboardingPage} />} />
-      <Route path="/" component={() => <ProtectedRoute component={DashboardPage} />} />
       <Route path="/log" component={() => <ProtectedRoute component={LogFoodPage} />} />
       <Route path="/history" component={() => <ProtectedRoute component={HistoryPage} />} />
       <Route path="/insights" component={() => <ProtectedRoute component={InsightsPage} />} />
