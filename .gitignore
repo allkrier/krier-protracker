@@ -1,49 +1,76 @@
-# See https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+# ============================================================
+# Dependencies
+# ============================================================
+node_modules/
+.pnpm-store/
 
-# compiled output
-dist
-tmp
-out-tsc
+# ============================================================
+# Build output
+# ============================================================
+dist/
+tmp/
+out-tsc/
 *.tsbuildinfo
-.expo
-.expo-shared
+.expo/
+.expo-shared/
 
-# dependencies
-node_modules
+# ============================================================
+# Environment variables & secrets — NEVER commit these
+# ============================================================
+.env
+.env.local
+.env.*.local
+.env.development
+.env.production
 
+# ============================================================
 # IDEs and editors
-/.idea
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
-
-# IDE - VSCode
+# ============================================================
+.idea/
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+*.sublime-workspace
+.project
+.classpath
+.c9/
+*.launch
+.settings/
 
-# misc
-/.sass-cache
-/connect.lock
-/coverage
-/libpeerconnection.log
-npm-debug.log
-yarn-error.log
-testem.log
-/typings
-
-# System Files
+# ============================================================
+# OS files
+# ============================================================
 .DS_Store
 Thumbs.db
 
-.cursor/rules/nx-rules.mdc
-.github/instructions/nx.instructions.md
+# ============================================================
+# Logs
+# ============================================================
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
 
-# Replit
+# ============================================================
+# Testing & coverage
+# ============================================================
+coverage/
+/typings
+
+# ============================================================
+# Replit internal (not needed in GitHub)
+# ============================================================
 .cache/
 .local/
+.cursor/
+.github/instructions/
+
+# ============================================================
+# Misc
+# ============================================================
+.sass-cache/
+connect.lock
+libpeerconnection.log
+testem.log
