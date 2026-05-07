@@ -54,9 +54,9 @@ jobs:
       - name: Prepare deployment package
         run: |
           mkdir -p deploy/artifacts/api-server
-          mkdir -p deploy/artifacts/protracker
+          mkdir -p deploy/artifacts/protein-tracker
           cp -r artifacts/api-server/dist deploy/artifacts/api-server/dist
-          cp -r artifacts/protracker/dist deploy/artifacts/protracker/dist
+          cp -r artifacts/protein-tracker/dist deploy/artifacts/protracker/dist
 
       # Upload the deploy/ folder so the deploy job can access it.
       - name: Upload artifact for deployment job
